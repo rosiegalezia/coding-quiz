@@ -19,11 +19,12 @@ startButton.addEventListener("click", function() {
 startButton.addEventListener("click", function() {
     // add click event listener to "start quiz" button
         // display the first question based on the questions that we have defined
-        renderQuestion(questionArray[0])
 
         // hide the start screen
         document.getElementById("start-screen").classList.add("hide");
+
         // show questions screen and populate it with questions and the choices
+        console.log(questionArray)
 })
 
 // Questions contain buttons for each answer.

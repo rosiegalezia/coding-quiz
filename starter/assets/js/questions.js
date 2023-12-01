@@ -5,23 +5,22 @@ var questions = document.querySelector("#questions")
 // array of objects, each object is a question
 var questionArray = [
     {
-        "title": "",
-        "choices": ["answer 1", "answer 2", "answer 3", "answer 4"],
-        "correct answer": ""
+        "title": "Which of the following keywords is used to define a variable in Javascript?",
+        "choices": ["var", "let", "both of the above", "none of the above"],
+        "correct answer": choices[2]
     },
 
     {
-        "title": "",
-        "choices": ["answer 1", "answer 2", "answer 3", "answer 4"],
-        "correct answer": ""
+        "title": "How do we write a comment in javascript?",
+        "choices": ["/* */", "//", "#", "$$"],
+        "correct answer": choices[1]
     },
 
     {
-        "title": "",
-        "choices": ["answer 1", "answer 2", "answer 3", "answer 4"],
-        "correct answer": ""
+        "title": "Inside which HTML element do we put the JavaScript?",
+        "choices": ["<script>", "<javascript>", "<js>", "<scripting>"],
+        "correct answer": choices[0]
     },
-
 ]
 
 
