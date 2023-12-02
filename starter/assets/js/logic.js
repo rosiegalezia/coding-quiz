@@ -6,7 +6,7 @@ var feedbackMessage = document.getElementById("feedback");
 var choicesButton = document.getElementById("choices");
 
 startButton.addEventListener("click", function() {
-    // timer starts
+    // timer function
     var timer = setInterval(function(){
         sec--;
         if (sec < 0) {
@@ -15,11 +15,10 @@ startButton.addEventListener("click", function() {
         // display the time remaining
         timeEl.textContent = sec
     }, 1000);
-    // console.log(sec)
-})
+    console.log(sec)
 
-startButton.addEventListener("click", function() {
-    // add click event listener to "start quiz" button
+    // quiz function
+    renderQuestion()
         // display the first question based on the questions that we have defined
 
         // hide the start screen
@@ -27,20 +26,21 @@ startButton.addEventListener("click", function() {
 
         // show questions screen and populate it with questions and the choices
         document.getElementById("questions").classList.remove("hide");
+        // renderQuestion();
         console.log(questionArray)
 })
 
 // Questions contain buttons for each answer.
-// When answer is clicked, the next question appears
-
+// When answer (choice button) is clicked, the next question appears
 
 // Add click event listener to the choices div and check if the choice button is clicked
 choicesButton.addEventListener("click", function() {
-
+    renderQuestion();
+    
     for (let i = 0; i < questionArray.length; i++){
     
     // Check if the answer is correct
-    if (questionArray.choices == questionArray.correctAnswer){
+    if (questionArray.choices == questionArray[i].correctAnswer){
 
     // display "correct answer" in feedback div
     document.getElementById("feedback").classList.remove("hide");

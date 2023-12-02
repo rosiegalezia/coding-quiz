@@ -1,13 +1,14 @@
-// - Define the questions and the choices and the answers, put it in a variable in questions.js file
-
 var questions = document.querySelector("#questions")
+var questionTitle = document.getElementById("question-title")
+var questionChoices = document.getElementById("choices")
 
+// Define the questions and the choices and the answers
 // array of objects, each object is a question
 var questionArray = [
     {
         title: "Which of the following keywords is used to define a variable in Javascript?",
         choices: ["var", "let", "both of the above", "none of the above"],
-        correctAnswer: choices[2]
+        correctAnswer: choices[2] // why does this not work??????????????
     },
 
     {
@@ -23,15 +24,18 @@ var questionArray = [
     },
 ]
 
-
 // function to render a question
 function renderQuestion(){
 
     for (let i = 0; i < questionArray.length; i++){
-    }
+    
 
     // render questionArray[i].title
+    questionTitle.textContent = questionArray[i].title
+
     // render questionArray[i].choices
+    questionChoices.textContent = questionArray[i].choices
+    }
 }
 
 // every time user answers a question, increment currentquestionindex to render next question
