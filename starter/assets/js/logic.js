@@ -3,7 +3,10 @@ var startButton = document.getElementById("start");
 var timeEl = document.querySelector("#time");
 var sec = 75;
 var feedbackMessage = document.getElementById("feedback");
-var choicesButton = document.getElementById("choices");
+var endScreen = document.getElementById("end-screen")
+var finalScore = document.querySelector("final-score")
+var initials = document.getElementById("initials")
+// var choicesButton = document.getElementById("choices");
 
 startButton.addEventListener("click", function() {
     // timer function
@@ -33,8 +36,8 @@ startButton.addEventListener("click", function() {
 // Questions contain buttons for each answer.
 // When answer (choice button) is clicked, the next question appears
 
-// Add click event listener to the choices div and check if the choice button is clicked
-choicesButton.addEventListener("click", function() {
+// Add click event listener for choices, check if answer is correct
+questionChoices.addEventListener("click", function() {
     renderQuestion();
     
     for (let i = 0; i < questionArray.length; i++){
@@ -66,7 +69,23 @@ choicesButton.addEventListener("click", function() {
     // if timer > 0. hide feedback div then display next question
     // if timer <= 0, hide feedback div then go display "end-screen" screen and hide question screen
     // continue.....
+
+
+    if (timer > 0) {
+        currentQuestionIndex ++
     }
+    else {
+    document.getElementById("feedback").classList.add("hide");
+    document.getElementById("end-screen").classList.remove("hide");
+    }
+    }
+
+    // calculate final score
+    finalScore.textContent = sec
+
+    // get initials
+    initials = ???
+    localStorage.setItem(initials)
 }
 })
 

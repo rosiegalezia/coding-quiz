@@ -35,6 +35,7 @@ function renderQuestion(){
 
     // render questionArray[i].choices
     questionChoices.textContent = questionArray[i].choices
+    // do I need to make an array??????????
     }
 }
 
