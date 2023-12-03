@@ -46,7 +46,6 @@ function renderQuestion(){
     choice.textContent = questionArray[currentQuestionIndex].choices[i]
     choice.value = questionArray[currentQuestionIndex].choices[i]
     console.log(choice.value)
-    // do I need to make an array??????????
 
     }
 

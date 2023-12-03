@@ -49,6 +49,7 @@ function evaluateQuestion(event) {
             document.getElementById("feedback").textContent = "Correct!"
 
             // then display next question
+            // currentQuestionIndex++
         }
 
         // If the answer is incorrect
@@ -92,9 +93,12 @@ function evaluateQuestion(event) {
 }
 
 questionChoices.addEventListener("click", function(){
-// increment the current question index
 currentQuestionIndex++
 })
+
+// for (let i = 0; i < questionArray.length; i++ || sec > 0){
+    
+// }
 
 // The quiz should end when all questions are answered or the timer reaches 0.
 // When the game ends, it should display their score and give the user the ability to save their initials and their score
