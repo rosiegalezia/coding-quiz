@@ -86,11 +86,15 @@ function evaluateQuestion(event) {
 
         // }
         renderQuestion()
+        
     }
 
-        // increment the current question index
-        currentQuestionIndex++
 }
+
+questionChoices.addEventListener("click", function(){
+// increment the current question index
+currentQuestionIndex++
+})
 
 // The quiz should end when all questions are answered or the timer reaches 0.
 // When the game ends, it should display their score and give the user the ability to save their initials and their score
