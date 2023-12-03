@@ -8,9 +8,9 @@ var finalScore = document.querySelector("final-score")
 var initials = document.getElementById("initials")
 // var choicesButton = document.getElementById("choices");
 
-startButton.addEventListener("click", function() {
+startButton.addEventListener("click", function () {
     // timer function
-    var timer = setInterval(function(){
+    var timer = setInterval(function () {
         sec--;
         if (sec < 0) {
             clearInterval(timer);
@@ -22,72 +22,77 @@ startButton.addEventListener("click", function() {
 
     // quiz function
     renderQuestion()
-        // display the first question based on the questions that we have defined
+    // display the first question based on the questions that we have defined
 
-        // hide the start screen
-        document.getElementById("start-screen").classList.add("hide");
+    // hide the start screen
+    document.getElementById("start-screen").classList.add("hide");
 
-        // show questions screen and populate it with questions and the choices
-        document.getElementById("questions").classList.remove("hide");
-        // renderQuestion();
-        console.log(questionArray)
+    // show questions screen and populate it with questions and the choices
+    document.getElementById("questions").classList.remove("hide");
+    // renderQuestion();
+    console.log(questionArray)
 })
 
 // Questions contain buttons for each answer.
 // When answer (choice button) is clicked, the next question appears
 
 // Add click event listener for choices, check if answer is correct
-questionChoices.addEventListener("click", function() {
-    renderQuestion();
-    
-    for (let i = 0; i < questionArray.length; i++){
-    
-    // Check if the answer is correct
-    if (questionArray.choices == questionArray[i].correctAnswer){
+function evaluateQuestion(event) {
 
-    // display "correct answer" in feedback div
-    document.getElementById("feedback").classList.remove("hide");
-    document.getElementById("feedback").textContent = "Correct!"
+    for (let i = 0; i < questionArray.length; i++) {
 
-    // hide the feedback div
-    document.getElementById("feedback").classList.add("hide");
+        // Check if the answer is correct
+        if (event.target.value == questionArray[currentQuestionIndex].correctAnswer) {
 
-    // then display next question
+            // display "correct answer" in feedback div
+            document.getElementById("feedback").classList.remove("hide");
+            document.getElementById("feedback").textContent = "Correct!"
+
+            // // hide the feedback div
+            // document.getElementById("feedback").classList.add("hide");
+
+            // then display next question
+        }
+
+        // If the answer is incorrect
+        else {
+
+            // subtract the timer
+            sec = sec - 10;
+
+            // display "wrong answer" in feedback div
+            document.getElementById("feedback").classList.remove("hide");
+            document.getElementById("feedback").textContent = "Wrong Answer :("
+
+            // check the timer,
+            // if timer > 0. hide feedback div then display next question
+            // if timer <= 0, hide feedback div then go display "end-screen" screen and hide question screen
+            // continue.....
+
+
+            // if (timer > 0) {
+            //     currentQuestionIndex ++
+            // }
+            // else {
+            // document.getElementById("feedback").classList.add("hide");
+            // document.getElementById("end-screen").classList.remove("hide");
+            // }
+            // }
+
+            // // calculate final score
+            // finalScore.textContent = sec
+
+            // // get initials
+            // // initials = ??? how do I get a text entry box
+            // localStorage.setItem(initials)
+        }
+
+                    // increment the current question index
+                    currentQuestionIndex++
+
+        // }
+        renderQuestion()
     }
-
-    // If the answer is incorrect
-    else {
-
-    // subtract the timer
-        sec = sec - 10;
-
-    // display "wrong answer" in feedback div
-    document.getElementById("feedback").classList.remove("hide");
-    document.getElementById("feedback").textContent = "Wrong Answer :("
-
-    // check the timer,
-    // if timer > 0. hide feedback div then display next question
-    // if timer <= 0, hide feedback div then go display "end-screen" screen and hide question screen
-    // continue.....
-
-
-    if (timer > 0) {
-        currentQuestionIndex ++
-    }
-    else {
-    document.getElementById("feedback").classList.add("hide");
-    document.getElementById("end-screen").classList.remove("hide");
-    }
-    }
-
-    // calculate final score
-    finalScore.textContent = sec
-
-    // get initials
-    initials = ???
-    localStorage.setItem(initials)
-}
-})
 
 // The quiz should end when all questions are answered or the timer reaches 0.
 // When the game ends, it should display their score and give the user the ability to save their initials and their score
@@ -110,3 +115,8 @@ questionChoices.addEventListener("click", function() {
 // document.getElementById('start').addEventListener('click', function() {
 // ....incorrectAudio.play();
 // });
+}
+
+    // hide questions questions screen show end screen
+    document.getElementById("questions").classList.add("hide");
+    document.getElementById("end-screen").classList.remove("hide");
