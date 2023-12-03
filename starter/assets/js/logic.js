@@ -90,15 +90,20 @@ function evaluateQuestion(event) {
         
     }
 
+    
+
 }
 
 questionChoices.addEventListener("click", function(){
 currentQuestionIndex++
 })
 
-// for (let i = 0; i < questionArray.length; i++ || sec > 0){
-    
+// if ((evaluateQuestion.i = questionArray.length) || (sec = 0)) {
+//     // hide questions questions screen show end screen
+//     document.getElementById("questions").classList.add("hide");
+//     document.getElementById("end-screen").classList.remove("hide");
 // }
+
 
 // The quiz should end when all questions are answered or the timer reaches 0.
 // When the game ends, it should display their score and give the user the ability to save their initials and their score
@@ -123,6 +128,3 @@ currentQuestionIndex++
 // });
 
 
-    // // hide questions questions screen show end screen
-    // document.getElementById("questions").classList.add("hide");
-    // document.getElementById("end-screen").classList.remove("hide");
