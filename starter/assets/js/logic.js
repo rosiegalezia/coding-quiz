@@ -48,15 +48,12 @@ function evaluateQuestion(event) {
             document.getElementById("feedback").classList.remove("hide");
             document.getElementById("feedback").textContent = "Correct!"
 
-            // // hide the feedback div
-            // document.getElementById("feedback").classList.add("hide");
-
             // then display next question
         }
 
         // If the answer is incorrect
         else {
-
+            
             // subtract the timer
             sec = sec - 10;
 
@@ -87,12 +84,13 @@ function evaluateQuestion(event) {
             // localStorage.setItem(initials)
         }
 
-                    // increment the current question index
-                    currentQuestionIndex++
-
         // }
         renderQuestion()
     }
+
+        // increment the current question index
+        currentQuestionIndex++
+}
 
 // The quiz should end when all questions are answered or the timer reaches 0.
 // When the game ends, it should display their score and give the user the ability to save their initials and their score
@@ -115,8 +113,8 @@ function evaluateQuestion(event) {
 // document.getElementById('start').addEventListener('click', function() {
 // ....incorrectAudio.play();
 // });
-}
 
-    // hide questions questions screen show end screen
-    document.getElementById("questions").classList.add("hide");
-    document.getElementById("end-screen").classList.remove("hide");
+
+    // // hide questions questions screen show end screen
+    // document.getElementById("questions").classList.add("hide");
+    // document.getElementById("end-screen").classList.remove("hide");
