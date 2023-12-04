@@ -4,11 +4,14 @@ var timeEl = document.querySelector("#time");
 var sec = 75;
 var feedbackMessage = document.getElementById("feedback");
 var endScreen = document.getElementById("end-screen")
-var finalScore = document.querySelector("final-score")
-var initials = document.getElementById("initials")
 // var choiceButton = renderQuestion.choice
 var quizLength = questionArray.length //variable for quesiton array length
 var correctAnswer = questionArray[currentQuestionIndex].correctAnswer
+// global variables for high scores
+var finalScore = document.querySelector("#final-score")
+var initials = document.getElementById("initials")
+var clearButton = document.getElementById("clear");
+var scoresList = document.getElementById("highscores")
 
 startButton.addEventListener("click", function () {
     // timer function
@@ -79,18 +82,18 @@ function evaluateQuestion(event) {
             // }
             // }
 
-            // // calculate final score
-            // finalScore.textContent = sec
 
-            // // get initials
-            // // initials = ??? how do I get a text entry box
-            // localStorage.setItem(initials)
         }
 
         // }
         renderQuestion()
         
     }
+    
+    // for (i >= questionArray.length) {
+    //     document.getElementById("questions").classList.add("hide");
+    //     document.getElementById("end-screen").classList.remove("hide");
+    // }
 
 questionChoices.addEventListener("click", function(){
 currentQuestionIndex++
@@ -98,13 +101,18 @@ currentQuestionIndex++
 
 }
 
-    // // When answer(choice button) is clicked, the next question appears
-    // questionChoices.addEventListener("click", function(){
-    //     while (currentQuestionIndex < quizLength) {
-    // // document.getElementById("feedback").classList.add("hide")
-    // currentQuestionIndex++
-    // console.log(currentQuestionIndex)}
-    //     })
+
+
+// set user score to be displayed at end
+userScore.textContent = sec
+
+//     // When answer(choice button) is clicked, the next question appears
+//     questionChoices.addEventListener("click", function(){
+//         while (currentQuestionIndex < quizLength) {
+//     // document.getElementById("feedback").classList.add("hide")
+//     currentQuestionIndex++
+//     console.log(currentQuestionIndex)}
+//         })
 
 // ("click", function() {
 //     document.getElementById("questions").classList.add("hide");
@@ -113,15 +121,26 @@ currentQuestionIndex++
 
 // The quiz should end when all questions are answered or the timer reaches 0.
 // When the game ends, it should display their score and give the user the ability to save their initials and their score
+localStorage.setItem(initials, sec);
 
-
-
+// append this score to the list in highscores.html
+scoresList.append(initials)
 
 // highscores.html
 // - Retrieve highscores from local storage
+localStorage.getItem(scoresList)
+
 // - sort the scores from higher score to Lower score
+scoresList.sort(function(a, b) {
+    return b - a;
+  });
+
 // - Display the highscores as a list
+
 // - When the user click on "Clear Highscores", clear local storage
+clearButton.addEventListener("click", function(){
+    localStorage.clear();
+})
 
 
 
