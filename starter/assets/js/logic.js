@@ -33,30 +33,35 @@ startButton.addEventListener("click", function () {
     console.log(questionArray)
 })
 
-// Questions contain buttons for each answer.
-// When answer (choice button) is clicked, the next question appears
+
+// When answer(choice button) is clicked, the next question appears
+
+questionChoices.addEventListener("click", function(){
+    currentQuestionIndex++ })
 
 // Add click event listener for choices, check if answer is correct
 function evaluateQuestion(event) {
+    
+    document.getElementById("feedback").classList.remove("hide");
+    document.getElementById("feedback").textContent = ""
 
     for (let i = 0; i < questionArray.length; i++) {
 
+        // document.getElementById("feedback").classList.remove("hide");
+
         // Check if the answer is correct
-        if (event.target.value == questionArray[currentQuestionIndex].correctAnswer) {
+        if (event.target.value === questionArray[currentQuestionIndex].correctAnswer) {
 
             // display "correct answer" in feedback div
             document.getElementById("feedback").classList.remove("hide");
             document.getElementById("feedback").textContent = "Correct!"
-
-            // then display next question
-            // currentQuestionIndex++
         }
 
         // If the answer is incorrect
         else {
             
             // subtract the timer
-            sec = sec - 10;
+            // sec = sec - 10;
 
             // display "wrong answer" in feedback div
             document.getElementById("feedback").classList.remove("hide");
@@ -90,19 +95,16 @@ function evaluateQuestion(event) {
         
     }
 
-    
-
 }
 
-questionChoices.addEventListener("click", function(){
-currentQuestionIndex++
-})
 
-// if ((evaluateQuestion.i = questionArray.length) || (sec = 0)) {
-//     // hide questions questions screen show end screen
-//     document.getElementById("questions").classList.add("hide");
-//     document.getElementById("end-screen").classList.remove("hide");
-// }
+function endScreen () {
+if (currentQuestionIndex = questionArray.length) {
+    // hide questions questions screen show end screen
+    document.getElementById("questions").classList.add("hide");
+    document.getElementById("end-screen").classList.remove("hide");
+}
+}
 
 
 // The quiz should end when all questions are answered or the timer reaches 0.

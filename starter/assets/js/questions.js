@@ -3,8 +3,8 @@ var questionTitle = document.getElementById("question-title")
 var questionChoices = document.getElementById("choices")
 var currentQuestionIndex = 0 // every time user answers a question, increment currentquestionindex to render next question
 
-// Define the questions and the choices and the answers
-// array of objects, each object is a question
+// Define the questions and the choices (answers) in an array of objects
+
 var questionArray = [
     {
         title: "Which of the following keywords is used to define a variable in Javascript?",
