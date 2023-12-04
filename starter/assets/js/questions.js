@@ -1,3 +1,4 @@
+// Global variables
 var questions = document.querySelector("#questions")
 var questionTitle = document.getElementById("question-title")
 var questionChoices = document.getElementById("choices")
@@ -23,15 +24,22 @@ var questionArray = [
         choices: ["<script>", "<javascript>", "<js>", "<scripting>"],
         correctAnswer: "<script>"
     },
+
+    {
+        title: "How would you create a function in JavaScript?",
+        choices: ["function myFunction()", "function:myFunction()", "function=myFunction()", "myFunction()"],
+        correctAnswer: "function myFunction()"
+    },
 ]
 
 
 // function to render a question
 function renderQuestion(){
     
-    // clear the choices
+    // clear the choices from last question
     questionChoices.innerHTML = ""
 
+    // go through question array and render questions and answer options
     for (let i = 0; i <= questionArray.length; i++){
     
     var choice = document.createElement("button");
@@ -45,10 +53,8 @@ function renderQuestion(){
     // render questionArray[i].choices
     choice.textContent = questionArray[currentQuestionIndex].choices[i]
     choice.value = questionArray[currentQuestionIndex].choices[i]
-    console.log(choice.value)
-
+    // console.log(choice.value)
     }
-
 
 }
 
