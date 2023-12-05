@@ -38,7 +38,6 @@ startButton.addEventListener("click", function () {
         // display the time remaining
         timeEl.textContent = sec
     }, 1000);
-    console.log(sec)
 
     // display the first question using the questions defined in questions.js
     renderQuestion()
@@ -56,13 +55,11 @@ startButton.addEventListener("click", function () {
 
 // Add click event listener for choices, check if answer is correct
 function evaluateQuestion(event) {
-    console.log(sec)
 
     for (let i = 0; i < questionArray.length; i++) {
 
         // clear 'feedback' between questions??
         document.getElementById("feedback").textContent = ""
-        console.log("here is current index: " + currentQuestionIndex)
         // Check if the answer is correct
         if (event.target.value == questionArray[currentQuestionIndex].correctAnswer) {
 
@@ -78,8 +75,7 @@ function evaluateQuestion(event) {
             document.getElementById("feedback").classList.remove("hide");
             document.getElementById("feedback").textContent = "Wrong Answer :( -5 second penalty"
             // subtract the timer
-            sec -= 1;
-            console.log(sec)
+            sec -= 1.25;
         }
 
     }
@@ -87,13 +83,5 @@ function evaluateQuestion(event) {
     currentQuestionIndex++
     renderQuestion()
 }
-
-// to add audio:
-
-// const correctAudio = new Audio('assets/sfx/correct.wav');
-// const incorrectAudio = new Audio('assets/sfx/incorrect.wav');
-// document.getElementById('start').addEventListener('click', function() {
-// ....incorrectAudio.play();
-// });
 
 

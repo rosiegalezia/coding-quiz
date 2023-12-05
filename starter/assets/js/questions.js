@@ -56,10 +56,9 @@ function renderQuestion() {
         } else {
             questionTitle.textContent = questionArray[currentQuestionIndex].title
 
-            // render questionArray[i].choices
             choice.textContent = questionArray[currentQuestionIndex].choices[i]
             choice.value = questionArray[currentQuestionIndex].choices[i]
-            // console.log(choice.value)
+        
         }
 
     }
