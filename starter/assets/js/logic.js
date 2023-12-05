@@ -10,7 +10,11 @@ var correctAnswer = questionArray[currentQuestionIndex].correctAnswer
 // global variables for high scores
 var finalScore = document.querySelector("#final-score")
 var atEndPage = false
-
+// global variables for scores
+var initials = document.getElementById("initials")
+var submitButton = document.querySelector("#submit")
+var clearButton = document.getElementById("clear");
+var scoresList = document.getElementById("highscores")
 
 startButton.addEventListener("click", function () {
     // timer function
