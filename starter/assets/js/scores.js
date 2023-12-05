@@ -4,34 +4,37 @@ var submitButton = document.querySelector("#submit")
 var clearButton = document.getElementById("clear");
 var scoresList = document.getElementById("highscores")
 
-
 function saveUserData() {
     console.log('hi')
+    // save initials (convert to string???)
     localStorage.setItem('initials', initials.value);
+    // save user score
     localStorage.setItem('score', sec);
+    // clear the input box
+    initials.value = ""
+
+    // display confirmation message
+    document.getElementById("feedback").classList.remove("hide");
+    document.getElementById("feedback").textContent = "Thanks, see how you compare to others in the 'view highscores' page"
+
 }
 
-// // give the user the ability to save their initials and their score
-// submitButton.addEventListener("submit", function() {
-//     console.log("submit event listener working")
-//     // console.log(localStorage)
+// retrieve highscores from local storage
+var userInitials = localStorage.getItem('initials')
+var userScore = localStorage.getItem('score')
 
-//     // // clear the input box
-//     // initials.value = ""
-// })
+scoresList.append(userInitials, userScore)
 
-// // // retrieve highscores from local storage
-// // localStorage.getItem(scoresList)
+// sort the scores from high to low
+scoresList.sort(function (a, b) {
+    return b - a;
+});
 
-// // // sort the scores from high to low
-// // scoresList.sort(function (a, b) {
-// //     return b - a;
-// // });
 
 // // // display the highscores as a list
 
-// // // when the user click on "Clear Highscores", clear local storage
-// // clearButton.addEventListener("click", function () {
-// //     localStorage.clear();
-// // })
+// when the user click on "Clear Highscores", clear local storage
+clearButton.addEventListener("click", function () {
+    localStorage.clear();
+})
 
