@@ -3,12 +3,11 @@ A coding quiz created for the week-6-challenge to practice javascript and web AP
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+This is a JavaScript project utilising web APIs to create a timed quiz, storing the user's scores and initials to the local storage to create a scoreboard.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+The quiz has four questions, showing the user if they were correct or incorrect before moving on to the next question.
+
+The project was a good opportunity to practice the content learnt in Week 6 of the Front-End Web Development bootcamp. It was significantly more complex than previous assignments, and proved challenging, allowing me to learnt a lot about using multiple js files, accessing local storage and using JSON.
 
 
 ## Installation
@@ -26,10 +25,7 @@ Provide a short description explaining the what, why, and how of your project. U
 The deployed site is available at: https://rosiegalezia.github.io/coding-quiz/
 
 A screenshot of the site and its console log can be seen below:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+![alt text](./starter/assets/images/Screenshot.png)
 
 ## Credits
 
