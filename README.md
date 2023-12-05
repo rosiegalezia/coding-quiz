@@ -7,6 +7,8 @@ This is a JavaScript project utilising web APIs to create a timed quiz, storing 
 
 The quiz has four questions, showing the user if they were correct or incorrect before moving on to the next question.
 
+The scoreboard in the highscores.html is not complete as I was unable to display any text there towards the end, this is something to improve in the next iteration.
+
 The project was a good opportunity to practice the content learnt in Week 6 of the Front-End Web Development bootcamp. It was significantly more complex than previous assignments, and proved challenging, allowing me to learnt a lot about using multiple js files, accessing local storage and using JSON.
 
 
