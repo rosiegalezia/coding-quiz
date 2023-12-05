@@ -9,11 +9,8 @@ var quizLength = questionArray.length //variable for quesiton array length
 var correctAnswer = questionArray[currentQuestionIndex].correctAnswer
 // global variables for high scores
 var finalScore = document.querySelector("#final-score")
-var initials = document.getElementById("initials")
-var clearButton = document.getElementById("clear");
-var scoresList = document.getElementById("highscores")
-var submitButton = document.getElementById("submit")
 var atEndPage = false
+
 
 startButton.addEventListener("click", function () {
     // timer function
@@ -77,7 +74,7 @@ function evaluateQuestion(event) {
             document.getElementById("feedback").classList.remove("hide");
             document.getElementById("feedback").textContent = "Wrong Answer :( -5 second penalty"
             // subtract the timer
-            sec = sec-5;
+            sec -= 1;
             console.log(sec)
         }
 
@@ -86,38 +83,6 @@ function evaluateQuestion(event) {
     currentQuestionIndex++
     renderQuestion()
 }
-
-// give the user the ability to save their initials and their score
-submitButton.addEventListener("click", function () {
-
-    localStorage.setItem("initials", initials);
-
-    // append this score to the list in highscores.html
-    // scoresList.appendChild('initials', 'sec')
-
-    console.log(localStorage)
-    console.log(scoresList)
-
-    // clear the input box
-    initials.value = ""
-})
-
-// retrieve highscores from local storage
-localStorage.getItem(scoresList)
-
-// sort the scores from high to low
-scoresList.sort(function (a, b) {
-    return b - a;
-});
-
-// display the highscores as a list
-
-// when the user click on "Clear Highscores", clear local storage
-clearButton.addEventListener("click", function () {
-    localStorage.clear();
-})
-
-
 
 // to add audio:
 

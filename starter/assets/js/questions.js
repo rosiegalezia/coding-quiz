@@ -64,8 +64,6 @@ function renderQuestion() {
 
     }
 
-    console.log("hello")
-
     // makes an array of the buttons
     var answerChoices = document.querySelectorAll(".choices")
 
