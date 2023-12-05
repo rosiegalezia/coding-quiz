@@ -55,6 +55,7 @@ startButton.addEventListener("click", function () {
 
 // Add click event listener for choices, check if answer is correct
 function evaluateQuestion(event) {
+    console.log(sec)
 
     for (let i = 0; i < questionArray.length; i++) {
 
@@ -72,13 +73,12 @@ function evaluateQuestion(event) {
         // If the answer is incorrect
         else {
 
-            // subtract the timer
-            sec = sec - 5;
-
             // display "wrong answer" in feedback div
             document.getElementById("feedback").classList.remove("hide");
-            document.getElementById("feedback").textContent = "Wrong Answer :("
-
+            document.getElementById("feedback").textContent = "Wrong Answer :( -5 second penalty"
+            // subtract the timer
+            sec = sec-5;
+            console.log(sec)
         }
 
     }
@@ -87,35 +87,35 @@ function evaluateQuestion(event) {
     renderQuestion()
 }
 
-// // give the user the ability to save their initials and their score
-// submitButton.addEventListener("click", function () {
+// give the user the ability to save their initials and their score
+submitButton.addEventListener("click", function () {
 
-//     localStorage.setItem("initials", initials);
+    localStorage.setItem("initials", initials);
 
-//     // append this score to the list in highscores.html
-//     // scoresList.appendChild('initials', 'sec')
+    // append this score to the list in highscores.html
+    // scoresList.appendChild('initials', 'sec')
 
-//     console.log(localStorage)
-//     console.log(scoresList)
+    console.log(localStorage)
+    console.log(scoresList)
 
-//     // clear the input box
-//     initials.value = ""
-// })
+    // clear the input box
+    initials.value = ""
+})
 
-// // retrieve highscores from local storage
-// localStorage.getItem(scoresList)
+// retrieve highscores from local storage
+localStorage.getItem(scoresList)
 
-// // sort the scores from high to low
-// scoresList.sort(function (a, b) {
-//     return b - a;
-// });
+// sort the scores from high to low
+scoresList.sort(function (a, b) {
+    return b - a;
+});
 
 // display the highscores as a list
 
-// // when the user click on "Clear Highscores", clear local storage
-// clearButton.addEventListener("click", function () {
-//     localStorage.clear();
-// })
+// when the user click on "Clear Highscores", clear local storage
+clearButton.addEventListener("click", function () {
+    localStorage.clear();
+})
 
 
 
