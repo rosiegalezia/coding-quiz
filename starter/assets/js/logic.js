@@ -12,15 +12,20 @@ var finalScore = document.querySelector("#final-score")
 var initials = document.getElementById("initials")
 var clearButton = document.getElementById("clear");
 var scoresList = document.getElementById("highscores")
+var submitButton = document.getElementById("submit")
+var atEndPage = false
 
 startButton.addEventListener("click", function () {
     // timer function
     var timer = setInterval(function () {
         sec--;
-        if (sec < 1) {
+        if (sec < 1 || atEndPage) {
             clearInterval(timer);
             document.getElementById("questions").classList.add("hide");
             document.getElementById("end-screen").classList.remove("hide");
+
+            // display score when game ends
+            finalScore.textContent = sec
         }
         // display the time remaining
         timeEl.textContent = sec
@@ -43,12 +48,12 @@ startButton.addEventListener("click", function () {
 
 // Add click event listener for choices, check if answer is correct
 function evaluateQuestion(event) {
-    
+
     for (let i = 0; i < questionArray.length; i++) {
 
         // clear 'feedback' between questions??
         document.getElementById("feedback").textContent = ""
-
+        console.log("here is current index: " + currentQuestionIndex)
         // Check if the answer is correct
         if (event.target.value == questionArray[currentQuestionIndex].correctAnswer) {
 
@@ -59,7 +64,7 @@ function evaluateQuestion(event) {
 
         // If the answer is incorrect
         else {
-            
+
             // subtract the timer
             sec = sec - 5;
 
@@ -82,65 +87,46 @@ function evaluateQuestion(event) {
             // }
             // }
 
-
         }
 
-        // }
-        renderQuestion()
-        
     }
-    
-    // for (i >= questionArray.length) {
-    //     document.getElementById("questions").classList.add("hide");
-    //     document.getElementById("end-screen").classList.remove("hide");
-    // }
-
-questionChoices.addEventListener("click", function(){
-currentQuestionIndex++
-})
-
+        // increment to next question and render
+        currentQuestionIndex++
+        renderQuestion()
 }
 
 
 
-// set user score to be displayed at end
-userScore.textContent = sec
 
-//     // When answer(choice button) is clicked, the next question appears
-//     questionChoices.addEventListener("click", function(){
-//         while (currentQuestionIndex < quizLength) {
-//     // document.getElementById("feedback").classList.add("hide")
-//     currentQuestionIndex++
-//     console.log(currentQuestionIndex)}
-//         })
+// // give the user the ability to save their initials and their score
+// submitButton.addEventListener("click", function () {
 
-// ("click", function() {
-//     document.getElementById("questions").classList.add("hide");
-//     document.getElementById("end-screen").classList.remove("hide");
+//     localStorage.setItem("initials", initials);
+
+//     // append this score to the list in highscores.html
+//     // scoresList.appendChild('initials', 'sec')
+
+//     console.log(localStorage)
+//     console.log(scoresList)
+
+//     // clear the input box
+//     initials.value = ""
 // })
 
-// The quiz should end when all questions are answered or the timer reaches 0.
-// When the game ends, it should display their score and give the user the ability to save their initials and their score
-localStorage.setItem(initials, sec);
+// // retrieve highscores from local storage
+// localStorage.getItem(scoresList)
 
-// append this score to the list in highscores.html
-scoresList.append(initials)
+// // sort the scores from high to low
+// scoresList.sort(function (a, b) {
+//     return b - a;
+// });
 
-// highscores.html
-// - Retrieve highscores from local storage
-localStorage.getItem(scoresList)
+// display the highscores as a list
 
-// - sort the scores from higher score to Lower score
-scoresList.sort(function(a, b) {
-    return b - a;
-  });
-
-// - Display the highscores as a list
-
-// - When the user click on "Clear Highscores", clear local storage
-clearButton.addEventListener("click", function(){
-    localStorage.clear();
-})
+// // when the user click on "Clear Highscores", clear local storage
+// clearButton.addEventListener("click", function () {
+//     localStorage.clear();
+// })
 
 
 

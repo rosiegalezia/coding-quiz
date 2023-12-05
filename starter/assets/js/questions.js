@@ -34,28 +34,49 @@ var questionArray = [
 
 
 // function to render a question
-function renderQuestion(){
-    
+function renderQuestion() {
+
     // clear the choices from last question
     questionChoices.innerHTML = ""
 
     // go through question array and render questions and answer options
-    for (let i = 0; i <= questionArray.length; i++){
-    
-    var choice = document.createElement("button");
-    questionChoices.appendChild(choice);
 
-    choice.addEventListener("click", evaluateQuestion)
+    for (let i = 0; i <= questionArray.length; i++) {
 
-    // render questionArray[i].title
-    questionTitle.textContent = questionArray[currentQuestionIndex].title
+        var choice = document.createElement("button");
+        choice.classList.add("choice");
+        questionChoices.appendChild(choice);
 
-    // render questionArray[i].choices
-    choice.textContent = questionArray[currentQuestionIndex].choices[i]
-    choice.value = questionArray[currentQuestionIndex].choices[i]
-    // console.log(choice.value)
+
+        // render questionArray[i].title
+        // ensure the for loop only 
+        if (currentQuestionIndex >= questionArray.length) {
+            atEndPage = true;
+            document.getElementById("questions").classList.add("hide");
+            document.getElementById("end-screen").classList.remove("hide");
+        } else {
+        questionTitle.textContent = questionArray[currentQuestionIndex].title
+
+        // render questionArray[i].choices
+        choice.textContent = questionArray[currentQuestionIndex].choices[i]
+        choice.value = questionArray[currentQuestionIndex].choices[i]
+        // console.log(choice.value)
+        }
+
     }
 
+    console.log("hello")
+
+    // makes an array of the buttons
+    var answerChoices = document.querySelectorAll(".choices")
+
+    // run function for each of the items in the array
+    answerChoices.forEach(function (currentButton) {
+        currentButton.addEventListener("click", evaluateQuestion)
+    })
+
+    // increment current question index
+    // currentQuestionIndex++
 }
 
 
