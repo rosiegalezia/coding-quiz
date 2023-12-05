@@ -32,7 +32,6 @@ var questionArray = [
     },
 ]
 
-
 // function to render a question
 function renderQuestion() {
 
@@ -55,12 +54,12 @@ function renderQuestion() {
             document.getElementById("questions").classList.add("hide");
             document.getElementById("end-screen").classList.remove("hide");
         } else {
-        questionTitle.textContent = questionArray[currentQuestionIndex].title
+            questionTitle.textContent = questionArray[currentQuestionIndex].title
 
-        // render questionArray[i].choices
-        choice.textContent = questionArray[currentQuestionIndex].choices[i]
-        choice.value = questionArray[currentQuestionIndex].choices[i]
-        // console.log(choice.value)
+            // render questionArray[i].choices
+            choice.textContent = questionArray[currentQuestionIndex].choices[i]
+            choice.value = questionArray[currentQuestionIndex].choices[i]
+            // console.log(choice.value)
         }
 
     }
@@ -75,10 +74,4 @@ function renderQuestion() {
         currentButton.addEventListener("click", evaluateQuestion)
     })
 
-    // increment current question index
-    // currentQuestionIndex++
 }
-
-
-
-// similar to todo list activity from Thurs 05

@@ -19,14 +19,21 @@ startButton.addEventListener("click", function () {
     // timer function
     var timer = setInterval(function () {
         sec--;
+        // when the timer runs our OR all the questions are finished
         if (sec < 1 || atEndPage) {
+
+            // stop the countdown
             clearInterval(timer);
+
+            // hide the questions and feedback and show the end screen
             document.getElementById("questions").classList.add("hide");
+            document.getElementById("feedback").classList.add("hide");
             document.getElementById("end-screen").classList.remove("hide");
 
             // display score when game ends
             finalScore.textContent = sec
         }
+
         // display the time remaining
         timeEl.textContent = sec
     }, 1000);
@@ -72,31 +79,13 @@ function evaluateQuestion(event) {
             document.getElementById("feedback").classList.remove("hide");
             document.getElementById("feedback").textContent = "Wrong Answer :("
 
-            // check the timer,
-            // if timer > 0. hide feedback div then display next question
-            // if timer <= 0, hide feedback div then go display "end-screen" screen and hide question screen
-            // continue.....
-
-
-            // if (timer > 0) {
-            //     currentQuestionIndex ++
-            // }
-            // else {
-            // document.getElementById("feedback").classList.add("hide");
-            // document.getElementById("end-screen").classList.remove("hide");
-            // }
-            // }
-
         }
 
     }
-        // increment to next question and render
-        currentQuestionIndex++
-        renderQuestion()
+    // increment to next question and render
+    currentQuestionIndex++
+    renderQuestion()
 }
-
-
-
 
 // // give the user the ability to save their initials and their score
 // submitButton.addEventListener("click", function () {
